@@ -1,0 +1,160 @@
+#:import dp kivy.metrics.dp
+
+<FocusRoot>:
+    orientation: "vertical"
+    padding: dp(20)
+    spacing: dp(16)
+
+    canvas.before:
+        Color:
+            rgba: (0.13, 0.15, 0.22, 1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [24, 24, 0, 0]
+
+    BoxLayout:
+        orientation: "vertical"
+        spacing: dp(6)
+
+        Label:
+            text: root.status
+            font_size: "18sp"
+            color: (0.78, 0.87, 1, 1)
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        Label:
+            text: root.prompt
+            font_size: "32sp"
+            color: (1, 1, 1, 1)
+            bold: True
+            halign: "left"
+            valign: "middle"
+            text_size: self.width, None
+            size_hint_y: None
+            height: self.texture_size[1]
+
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint_y: None
+        height: dp(72)
+        padding: dp(12)
+        spacing: dp(12)
+        canvas.before:
+            Color:
+                rgba: (0.10, 0.12, 0.18, 1)
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [16]
+
+        Label:
+            text: root.highlight
+            font_size: "16sp"
+            color: (0.9, 0.9, 0.95, 1)
+            halign: "left"
+            valign: "middle"
+            text_size: self.width, None
+            size_hint_x: 0.75
+
+        Button:
+            text: "Refresh focus"
+            size_hint_x: 0.25
+            background_normal: ""
+            background_color: (0.45, 0.67, 0.96, 1)
+            color: (0, 0, 0, 1)
+            on_release: root.refresh_prompt()
+
+    GridLayout:
+        cols: 3
+        size_hint_y: None
+        height: dp(90)
+        spacing: dp(12)
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: dp(8)
+            canvas.before:
+                Color:
+                    rgba: (0.19, 0.22, 0.33, 1)
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12]
+            Label:
+                text: "Streak"
+                font_size: "12sp"
+                color: (0.7, 0.75, 0.9, 1)
+            Label:
+                text: root.streak
+                font_size: "18sp"
+                color: (1, 1, 1, 1)
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: dp(8)
+            canvas.before:
+                Color:
+                    rgba: (0.19, 0.22, 0.33, 1)
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12]
+            Label:
+                text: "Breaths"
+                font_size: "12sp"
+                color: (0.7, 0.75, 0.9, 1)
+            Label:
+                text: root.breaths
+                font_size: "18sp"
+                color: (1, 1, 1, 1)
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: dp(8)
+            canvas.before:
+                Color:
+                    rgba: (0.19, 0.22, 0.33, 1)
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12]
+            Label:
+                text: "Energy"
+                font_size: "12sp"
+                color: (0.7, 0.75, 0.9, 1)
+            Label:
+                text: root.energy
+                font_size: "18sp"
+                color: (1, 1, 1, 1)
+
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_y: None
+        height: dp(120)
+        spacing: dp(6)
+        padding: dp(12)
+        canvas.before:
+            Color:
+                rgba: (0.12, 0.14, 0.2, 1)
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [16]
+
+        Label:
+            text: "Check-in"
+            font_size: "20sp"
+            bold: True
+            color: (1, 1, 1, 1)
+        Label:
+            text: "Open your thoughts and let this pocket of calm guide the rest of your day."
+            font_size: "14sp"
+            color: (0.8, 0.85, 0.95, 1)
+            halign: "left"
+            text_size: self.width, None
+            valign: "middle"
+            size_hint_y: None
+            height: self.texture_size[1]
+
