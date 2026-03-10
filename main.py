@@ -29,7 +29,10 @@ HIGHLIGHTS = [
     "Your calm focus is contagious - share it.",
 ]
 
-Window.clearcolor = (0.07, 0.08, 0.12, 1)
+BACKGROUND_COLOR = (0.07, 0.08, 0.12, 1)
+
+if Window:
+    Window.clearcolor = BACKGROUND_COLOR
 
 
 class FocusRoot(BoxLayout):
@@ -55,6 +58,8 @@ class FocusRoot(BoxLayout):
 
 class FocusApp(App):
     def build(self):
+        if Window:
+            Window.clearcolor = BACKGROUND_COLOR
         return FocusRoot()
 
 
